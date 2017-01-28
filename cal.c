@@ -86,4 +86,4 @@ int main()
 			check(a, i, '-');i=0;
 		}
 	}
-}
+} 
