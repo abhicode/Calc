@@ -65,6 +65,7 @@ int main()
 	char a[100];
 	float s1, s2;
 	int i, j;
+	printf("*************************CALCULATOR***************************\n");
 	printf("expression\n");
 	scanf("%s", a);
 	for(i=0;i<j;i++)
