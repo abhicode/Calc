@@ -3,11 +3,19 @@ import javax.swing.table.*;
 import java.sql.*;
 import javax.swing.JOptionPane;*/
 
+//add six jLabel and six jTextField and two jButton
+//six jLabels are for "teacher code", "teacher name", "address", "salary", "dept_no", date of jaoing"
+//set the property of jTextField as "txtTno", "txtTname", "txtTaddress", "txtTsalary", "txtTdepno", "txtTdoj"
+//two jButton are for "SAVE" and "EXIT"
+//set property value of the jButton as "save" and "exit"
+
 //there are some lines in b/w(by default)
 
 Statement stmt=null;
 ResultSet rs=null;
 String SQL="SELECT * FROM teacher1";
+
+//double click on "SAVE" jButton and write the following code:-
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {                                     
 try{
     Class.forName("com.mysql.jdbc.Driver");
@@ -34,7 +42,7 @@ try{
     JOptionPane.showMessageDialog(this,e.getMessage());
 }
     }                                    
-
+//double click on the "EXIT" jButton and write the following code:-
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {                                     
     System.exit(0);
     }
