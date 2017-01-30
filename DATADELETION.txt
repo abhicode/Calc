@@ -1,0 +1,96 @@
+private void addlistActionPerformed(java.awt.event.ActionEvent evt) {                                        
+//Creating a ListModel object dModel to perform DefaultListModel();
+        //method operations
+        DefaultListModel dModel=(DefaultListModel)jList1.getModel();
+        //method to add elements into jList1 control
+        txtTno.enableInputMethods(false);
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=(Connection)
+            DriverManager.getConnection("jdbc:mysql://localhost:3306/school","root","mysql");
+            Statement stmt=null;
+            ResultSet rs=null;
+            String SQL="SELECT * FROM teacher1";
+            stmt=con.createStatement();
+            rs=stmt.executeQuery(SQL);
+            //adding teacher no. (Tno) and teacher name (tname) into jList box.
+            while(rs.next()){
+                String ntNo=rs.getString("tno");
+                String ntName=rs.getString("tname");
+                dModel.addElement(ntNo+"-"+ntName);//Tno and tname
+            }
+            jList1.setModel(dModel);
+            con.close();
+            }catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this,e.getMessage());
+            e.printStackTrace();
+        }
+    }                                       
+
+    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {                                    
+try{
+    Class.forName("com.mysql.jdbc.Driver");
+    Connection con=(Connection)
+    DriverManager.getConnection("jdbc:mysql://localhost:3306/school","root","mysql");
+    Statement stmt=null;
+    ResultSet rs=null;
+    String MTno=(String)jList1.getSelectedValue();
+    MTno=MTno.substring(0,3).trim();
+    String SQL="SELECT * FROM teacher1 where tno='"+(MTno)+"'";
+    stmt=con.createStatement();
+    rs=stmt.executeQuery(SQL);
+    stmt=con.createStatement();
+    rs=stmt.executeQuery(SQL);
+    txtTno.enableInputMethods(false);
+    while(rs.next()){
+        String tcode=rs.getString("tno");
+        String name=rs.getString("tname");
+        String add=rs.getString("taddress");
+        float sal=rs.getFloat("salary");
+        String dept=rs.getString("dept_no");
+        String Tdoj=rs.getString("doj");
+        txtTno.setText(tcode);
+        txtTname.setText(name);
+        txtTaddress.setText(add);
+        txtTsalary.setText(" "+sal);
+        txtTDeptno.setText(dept);
+        txtTDoj.setText(Tdoj);
+    }
+}catch(Exception e)
+{
+    JOptionPane.showMessageDialog(this,e.getMessage());
+    e.printStackTrace();
+}
+    }                                   
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {                                       
+try{
+    Class.forName("com.mysql.jdbc.Driver");
+    Connection con=(Connection)
+    DriverManager.getConnection("jdbc:mysql://localhost:3306/school","root","mysql");
+    Statement stmt=null;
+    ResultSet rs=null;
+    stmt=con.createStatement();
+    String tcode=txtTno.getText();
+    String name=txtTname.getText();
+    String add=txtTaddress.getText();
+    double sal=Double.parseDouble(txtTsalary.getText());
+    String dept=txtTDeptno.getText();
+    String Tdoj=txtTDoj.getText();
+    String strSQL="delete from teacher1 where tno='"+(tcode)+"'";
+    int rowsEffected=stmt.executeUpdate(strSQL);
+    if(rowsEffected==0)
+        JOptionPane.showMessageDialog(this,"Record does not exist");
+    else
+        JOptionPane.showMessageDialog(this,"Record Deleted");
+    System.out.println(rowsEffected+"rows effected");
+}catch(Exception e){
+JOptionPane.showMessageDialog(this,e.getMessage());
+e.printStackTrace();
+}
+    }                                      
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {                                     
+System.exit(0);
+    }
