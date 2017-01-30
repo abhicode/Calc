@@ -1,2 +1,1 @@
-# Calc
-Koss selection task.
+KOSS selection task
