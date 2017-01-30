@@ -1,0 +1,33 @@
+Statement stmt=null;
+ResultSet rs=null;
+String SQL="SELECT * FROM teacher1";
+    private void saveActionPerformed(java.awt.event.ActionEvent evt) {                                     
+try{
+    Class.forName("com.mysql.jdbc.Driver");
+    Connection con=(Connection)
+    DriverManager.getConnection("jdbc:mysql://localhost:3306/school","root","mysql");
+    stmt=con.createStatement();
+    rs=stmt.executeQuery(SQL);
+    while(rs.next())
+    {
+        System.out.println(rs.getString("tname")+":"+rs.getString("taddress"));
+    }
+    String tcode=txtTno.getText();
+    String name=txtTname.getText();
+    String add=txtTaddress.getText();
+    double sal=Double.parseDouble(txtTsalary.getText());
+    String dept=txtTdeptno.getText();
+    String Tdoj=txtTdoj.getText();
+    String strSQL="INSERT INTO teacher1(tno, tname, taddress, salary, dept_no, doj) VALUES('"+(tcode)+"', '"+(name)+"', '"+(add)+"', '"+(sal)+"', '"+(dept)+"', '"+(Tdoj)+"')";
+    System.out.print("Insert new record: ");
+    int rowsEffected=stmt.executeUpdate(strSQL);
+    System.out.println(rowsEffected+" rows effected");
+}catch(Exception e)
+{
+    JOptionPane.showMessageDialog(this,e.getMessage());
+}
+    }                                    
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {                                     
+    System.exit(0);
+    }
