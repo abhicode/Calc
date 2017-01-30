@@ -1,3 +1,19 @@
+/*write these codes at the top:-
+import javax.swing.table.*;
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.DefaultListModel;*/
+
+//design IDE: add a jList, six jLabel, six corresponding jTextField, three jButton
+//the six jLabel and jTextField are for teacher no., name, Address, Salary, Dept no. Date of Joining
+//Set the property value of six jTextField as txtTno, txtTname, txtTaddress, txtTsalary, txtTDeptno, txtTDoj
+//the three jButton are for "Add teacher to list", "Delete Teacher" and "EXIT"
+//set property value for jButton as "addlist", "delete" and "exit"
+
+/*Edit the properties of jList you have addedby following the steps:-
+click model property>set as Custom Code>set jList1.setMode() as new DefaultListModel()>click OK*/
+
+//double click on "Add teacher to list" jButton and write the following code:-
 private void addlistActionPerformed(java.awt.event.ActionEvent evt) {                                        
 //Creating a ListModel object dModel to perform DefaultListModel();
         //method operations
@@ -27,7 +43,7 @@ private void addlistActionPerformed(java.awt.event.ActionEvent evt) {
             e.printStackTrace();
         }
     }                                       
-
+//right click on jList>events>Mouse Option>Mouse Clicked>write code:-
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {                                    
 try{
     Class.forName("com.mysql.jdbc.Driver");
@@ -63,7 +79,7 @@ try{
     e.printStackTrace();
 }
     }                                   
-
+//double click on "Delete Teacher" jButton and write the following code:-
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {                                       
 try{
     Class.forName("com.mysql.jdbc.Driver");
@@ -90,7 +106,7 @@ JOptionPane.showMessageDialog(this,e.getMessage());
 e.printStackTrace();
 }
     }                                      
-
+//double  click on "EXIT" jButton and write the following code:-
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {                                     
 System.exit(0);
     }
