@@ -1,3 +1,10 @@
+/*these codes need to be written on the top:-
+import javax.swing.table.*;
+import java.sql.*;
+import javax.swing.JOptionPane;*/
+
+//there are some lines in b/w(by default)
+
 Statement stmt=null;
 ResultSet rs=null;
 String SQL="SELECT * FROM teacher1";
