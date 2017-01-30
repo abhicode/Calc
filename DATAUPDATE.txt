@@ -8,6 +8,7 @@ import javax.swing.DefaultListModel;*/
 //the six jLabel and jTextField are for teacher no., name, Address, Salary, Dept no. Date of Joining
 //Set the property value of six jTextField as txtTno, txtTname, txtTaddress, txtTsalary, txtTDeptno, txtTDoj
 //the three jButton are for "Add teacher to list", "Update Teacher" and "EXIT"
+//set property value for jButton as "Addlist", "update" and "exit"
 
 /*Edit the properties of jList you have addedby following the steps:-
 click model property>set as Custom Code>set jList1.setMode() as new DefaultListModel()>click OK*/
