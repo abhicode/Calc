@@ -1,3 +1,18 @@
+/*write these codes at the top:-
+import javax.swing.table.*;
+import java.sql.*;
+import javax.swing.JOptionPane;
+import javax.swing.DefaultListModel;*/
+
+//design IDE: add a jList, six jLabel, six corresponding jTextField, three jButton
+//the six jLabel and jTextField are for teacher no., name, Address, Salary, Dept no. Date of Joining
+//Set the property value of six jTextField as txtTno, txtTname, txtTaddress, txtTsalary, txtTDeptno, txtTDoj
+//the three jButton are for "Add teacher to list", "Update Teacher" and "EXIT"
+
+/*Edit the properties of jList you have addedby following the steps:-
+click model property>set as Custom Code>set jList1.setMode() as new DefaultListModel()>click OK*/
+
+//double click on "Add teacher to list" jButton and write the following code:-
   private void AddlistActionPerformed(java.awt.event.ActionEvent evt) {                                        
 //Creating a ListModel object dModel to perform DefaultListModel();
         //method operations
@@ -13,7 +28,8 @@
             String SQL="SELECT * FROM teacher1";
             stmt=con.createStatement();
             rs=stmt.executeQuery(SQL);
-            //adding teacher no. (Tno) and teacher name (tname) into jList box.
+
+//adding teacher no. (Tno) and teacher name (tname) into jList box.
             while(rs.next()){
                 String ntNo=rs.getString("tno");
                 String ntName=rs.getString("tname");
@@ -28,6 +44,7 @@
         }
 }                                       
 
+//right click on jList>events>Mouse Option>Mouse Clicked>write code:-
     private void jList1MouseClicked(java.awt.event.MouseEvent evt) {                                    
 try{
     Class.forName("com.mysql.jdbc.Driver");
@@ -63,7 +80,7 @@ try{
     e.printStackTrace();
 }
     }                                   
-
+//double click on "update teacher" jButton and write the following code:-
     private void updateActionPerformed(java.awt.event.ActionEvent evt) {                                       
 try{
     Class.forName("com.mysql.jdbc.Driver");
@@ -90,7 +107,7 @@ try{
     e.printStackTrace();
 }
     }                                      
-
+//double click on "EXIT" jButton amd write the following code:-
     private void exitActionPerformed(java.awt.event.ActionEvent evt) {                                     
 System.exit(0);
     }
